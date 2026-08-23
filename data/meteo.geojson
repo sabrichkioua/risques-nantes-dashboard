@@ -1,0 +1,266 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.771667,
+          47.472833
+        ]
+      },
+      "properties": {
+        "id_station": "44015001",
+        "nom_station": "BLAIN",
+        "altitude_m": 13.0,
+        "date_observation": "2026-08-23T10:00:00Z",
+        "temperature_c": 23.4,
+        "point_rosee_c": null,
+        "humidite_pct": null,
+        "direction_vent_deg": null,
+        "vent_ms": null,
+        "vent_kmh": null,
+        "rafale_10min_ms": null,
+        "rafale_10min_kmh": null,
+        "direction_rafale_deg": null,
+        "pluie_mm": 0.0,
+        "pression_hpa": null,
+        "pression_mer_hpa": null,
+        "date_collecte": "2026-08-23T10:06:32Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.608833,
+          47.15
+        ]
+      },
+      "properties": {
+        "id_station": "44020001",
+        "nom_station": "NANTES-BOUGUENAIS",
+        "altitude_m": 26.0,
+        "date_observation": "2026-08-23T10:00:00Z",
+        "temperature_c": 24.6,
+        "point_rosee_c": 9.7,
+        "humidite_pct": 39.0,
+        "direction_vent_deg": 70.0,
+        "vent_ms": 5.9,
+        "vent_kmh": 21.2,
+        "rafale_10min_ms": 9.3,
+        "rafale_10min_kmh": 33.5,
+        "direction_rafale_deg": 70.0,
+        "pluie_mm": 0.0,
+        "pression_hpa": 1016.7,
+        "pression_mer_hpa": 1019.7,
+        "date_collecte": "2026-08-23T10:06:32Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.514,
+          47.227667
+        ]
+      },
+      "properties": {
+        "id_station": "44109012",
+        "nom_station": "NANTES-VILLE",
+        "altitude_m": 17.0,
+        "date_observation": "2026-08-23T10:00:00Z",
+        "temperature_c": 23.6,
+        "point_rosee_c": null,
+        "humidite_pct": null,
+        "direction_vent_deg": null,
+        "vent_ms": null,
+        "vent_kmh": null,
+        "rafale_10min_ms": null,
+        "rafale_10min_kmh": null,
+        "direction_rafale_deg": null,
+        "pluie_mm": 0.0,
+        "pression_hpa": null,
+        "pression_mer_hpa": null,
+        "date_collecte": "2026-08-23T10:06:32Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.513667,
+          47.425167
+        ]
+      },
+      "properties": {
+        "id_station": "44110002",
+        "nom_station": "NORT-SUR-ERDRE",
+        "altitude_m": 13.0,
+        "date_observation": "2026-08-23T10:00:00Z",
+        "temperature_c": 23.4,
+        "point_rosee_c": 10.4,
+        "humidite_pct": 44.0,
+        "direction_vent_deg": 80.0,
+        "vent_ms": 6.2,
+        "vent_kmh": 22.3,
+        "rafale_10min_ms": 9.1,
+        "rafale_10min_kmh": 32.8,
+        "direction_rafale_deg": 60.0,
+        "pluie_mm": 0.0,
+        "pression_hpa": null,
+        "pression_mer_hpa": null,
+        "date_collecte": "2026-08-23T10:06:32Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.336833,
+          47.1415
+        ]
+      },
+      "properties": {
+        "id_station": "44117002",
+        "nom_station": "LE PALLET_SAPC",
+        "altitude_m": 35.0,
+        "date_observation": "2026-08-23T10:00:00Z",
+        "temperature_c": 23.3,
+        "point_rosee_c": null,
+        "humidite_pct": null,
+        "direction_vent_deg": null,
+        "vent_ms": null,
+        "vent_kmh": null,
+        "rafale_10min_ms": null,
+        "rafale_10min_kmh": null,
+        "direction_rafale_deg": null,
+        "pluie_mm": 0.0,
+        "pression_hpa": null,
+        "pression_mer_hpa": null,
+        "date_collecte": "2026-08-23T10:06:32Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.828667,
+          47.210333
+        ]
+      },
+      "properties": {
+        "id_station": "44120002",
+        "nom_station": "PELLERIN(LE)",
+        "altitude_m": 4.0,
+        "date_observation": "2026-08-23T10:00:00Z",
+        "temperature_c": 22.7,
+        "point_rosee_c": null,
+        "humidite_pct": null,
+        "direction_vent_deg": null,
+        "vent_ms": null,
+        "vent_kmh": null,
+        "rafale_10min_ms": null,
+        "rafale_10min_kmh": null,
+        "direction_rafale_deg": null,
+        "pluie_mm": 0.0,
+        "pression_hpa": null,
+        "pression_mer_hpa": null,
+        "date_collecte": "2026-08-23T10:06:32Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.7825,
+          47.005667
+        ]
+      },
+      "properties": {
+        "id_station": "44181001",
+        "nom_station": "ST-MEME-LE-TENU",
+        "altitude_m": 4.0,
+        "date_observation": "2026-08-23T09:54:00Z",
+        "temperature_c": 22.1,
+        "point_rosee_c": 9.3,
+        "humidite_pct": 44.0,
+        "direction_vent_deg": 60.0,
+        "vent_ms": 4.5,
+        "vent_kmh": 16.2,
+        "rafale_10min_ms": 7.9,
+        "rafale_10min_kmh": 28.4,
+        "direction_rafale_deg": 80.0,
+        "pluie_mm": 0.0,
+        "pression_hpa": null,
+        "pression_mer_hpa": null,
+        "date_collecte": "2026-08-23T10:06:32Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.652833,
+          47.029167
+        ]
+      },
+      "properties": {
+        "id_station": "44188001",
+        "nom_station": "ST-PHILBERT",
+        "altitude_m": 18.0,
+        "date_observation": "2026-08-23T10:00:00Z",
+        "temperature_c": 23.9,
+        "point_rosee_c": null,
+        "humidite_pct": null,
+        "direction_vent_deg": null,
+        "vent_ms": null,
+        "vent_kmh": null,
+        "rafale_10min_ms": null,
+        "rafale_10min_kmh": null,
+        "direction_rafale_deg": null,
+        "pluie_mm": 0.0,
+        "pression_hpa": null,
+        "pression_mer_hpa": null,
+        "date_collecte": "2026-08-23T10:06:32Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.482667,
+          46.956667
+        ]
+      },
+      "properties": {
+        "id_station": "85190001",
+        "nom_station": "ROCHESERVIERE",
+        "altitude_m": 43.0,
+        "date_observation": "2026-08-23T09:54:00Z",
+        "temperature_c": 23.5,
+        "point_rosee_c": null,
+        "humidite_pct": null,
+        "direction_vent_deg": null,
+        "vent_ms": null,
+        "vent_kmh": null,
+        "rafale_10min_ms": null,
+        "rafale_10min_kmh": null,
+        "direction_rafale_deg": null,
+        "pluie_mm": 0.0,
+        "pression_hpa": null,
+        "pression_mer_hpa": null,
+        "date_collecte": "2026-08-23T10:06:32Z"
+      }
+    }
+  ]
+}

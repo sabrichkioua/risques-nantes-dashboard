@@ -1,0 +1,145 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.379008,
+          47.295597
+        ]
+      },
+      "properties": {
+        "code_station": "M622001010",
+        "nom_station": "La Loire à Mauves-sur-Loire",
+        "commune": "MAUVES-SUR-LOIRE",
+        "cours_eau": "la Loire",
+        "grandeur": "H",
+        "date_derniere": "2026-08-23T08:00:00+00:00",
+        "valeur_actuelle": 3.81,
+        "unite": "m",
+        "delta_1h": -0.11299999999999999,
+        "delta_3h": -0.4149999999999996,
+        "delta_6h": -0.7819999999999996,
+        "tendance": "baisse",
+        "qualification": "Non qualifiée",
+        "statut": "Brute",
+        "niveau_dynamique": null,
+        "libelle_dynamique": "ANALYSE_MAREE_REQUISE",
+        "vitesse_1h_m_h": -0.113,
+        "vitesse_3h_m_h": -0.138,
+        "vitesse_6h_m_h": -0.13,
+        "tendance_courte": "BAISSE",
+        "retournement": null,
+        "motif": "Station influencée par la marée : les variations brutes ne sont pas interprétées comme un niveau de risque hydrologique. Niveau brut actuellement en baisse.",
+        "date_calcul": "2026-08-23T09:00:54Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.566759,
+          47.208809
+        ]
+      },
+      "properties": {
+        "code_station": "M800001010",
+        "nom_station": "La Loire à Nantes - Pont Anne de Bretagne",
+        "commune": "NANTES",
+        "cours_eau": "la Loire",
+        "grandeur": "H",
+        "date_derniere": "2026-08-23T08:00:00+00:00",
+        "valeur_actuelle": 2.277,
+        "unite": "m",
+        "delta_1h": -0.09399999999999986,
+        "delta_3h": -1.1709999999999998,
+        "delta_6h": -2.162,
+        "tendance": "baisse",
+        "qualification": "Non qualifiée",
+        "statut": "Brute",
+        "niveau_dynamique": null,
+        "libelle_dynamique": "ANALYSE_MAREE_REQUISE",
+        "vitesse_1h_m_h": -0.094,
+        "vitesse_3h_m_h": -0.39,
+        "vitesse_6h_m_h": -0.36,
+        "tendance_courte": "BAISSE",
+        "retournement": null,
+        "motif": "Station influencée par la marée : les variations brutes ne sont pas interprétées comme un niveau de risque hydrologique. Niveau brut actuellement en baisse.",
+        "date_calcul": "2026-08-23T09:00:54Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.531964,
+          47.121541
+        ]
+      },
+      "properties": {
+        "code_station": "M820502010",
+        "nom_station": "L'Ognon aux Sorinières [Villeneuve]",
+        "commune": "SORINIERES",
+        "cours_eau": "l'Ognon",
+        "grandeur": "H",
+        "date_derniere": "2026-08-23T08:30:00+00:00",
+        "valeur_actuelle": 3.314,
+        "unite": "m",
+        "delta_1h": 0.0,
+        "delta_3h": 0.0,
+        "delta_6h": 0.0,
+        "tendance": "stable",
+        "qualification": "Non qualifiée",
+        "statut": "Brute",
+        "niveau_dynamique": 0.0,
+        "libelle_dynamique": "STABLE",
+        "vitesse_1h_m_h": 0.0,
+        "vitesse_3h_m_h": 0.0,
+        "vitesse_6h_m_h": 0.0,
+        "tendance_courte": "STABLE",
+        "retournement": null,
+        "motif": "Dynamique récente : STABLE ; variation 1 h = +0.000 m/h",
+        "date_calcul": "2026-08-23T09:00:54Z"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -1.482471,
+          47.165241
+        ]
+      },
+      "properties": {
+        "code_station": "M750242010",
+        "nom_station": "La Sèvre Nantaise à Vertou",
+        "commune": "VERTOU",
+        "cours_eau": "la Sèvre Nantaise",
+        "grandeur": "H",
+        "date_derniere": "2026-08-23T08:30:00+00:00",
+        "valeur_actuelle": -0.197,
+        "unite": "m",
+        "delta_1h": 0.0030000000000000027,
+        "delta_3h": -0.0010000000000000009,
+        "delta_6h": 0.0,
+        "tendance": "stable",
+        "qualification": "Non qualifiée",
+        "statut": "Brute",
+        "niveau_dynamique": 0.0,
+        "libelle_dynamique": "STABLE",
+        "vitesse_1h_m_h": 0.003,
+        "vitesse_3h_m_h": 0.0,
+        "vitesse_6h_m_h": 0.0,
+        "tendance_courte": "STABLE",
+        "retournement": null,
+        "motif": "Dynamique récente : STABLE ; variation 1 h = +0.003 m/h",
+        "date_calcul": "2026-08-23T09:00:54Z"
+      }
+    }
+  ]
+}
