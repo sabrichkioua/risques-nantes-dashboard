@@ -33,7 +33,7 @@
         "tendance_courte": "BAISSE",
         "retournement": null,
         "motif": "Station influencée par la marée : les variations brutes ne sont pas interprétées comme un niveau de risque hydrologique. Niveau brut actuellement en baisse.",
-        "date_calcul": "2026-08-23T19:21:08Z"
+        "date_calcul": "2026-08-23T19:43:12Z"
       }
     },
     {
@@ -68,7 +68,7 @@
         "tendance_courte": "BAISSE",
         "retournement": null,
         "motif": "Station influencée par la marée : les variations brutes ne sont pas interprétées comme un niveau de risque hydrologique. Niveau brut actuellement en baisse.",
-        "date_calcul": "2026-08-23T19:21:08Z"
+        "date_calcul": "2026-08-23T19:43:12Z"
       }
     },
     {
@@ -86,24 +86,24 @@
         "commune": "SORINIERES",
         "cours_eau": "l'Ognon",
         "grandeur": "H",
-        "date_derniere": "2026-08-23T19:00:00+00:00",
+        "date_derniere": "2026-08-23T19:20:00+00:00",
         "valeur_actuelle": 3.32,
         "unite": "m",
-        "delta_1h": -0.006000000000000227,
-        "delta_3h": 0.005999999999999783,
-        "delta_6h": 0.006999999999999673,
+        "delta_1h": -0.001000000000000334,
+        "delta_3h": 0.006999999999999673,
+        "delta_6h": 0.005999999999999783,
         "tendance": "stable",
         "qualification": "Non qualifiée",
         "statut": "Brute",
         "niveau_dynamique": 0.0,
         "libelle_dynamique": "STABLE",
-        "vitesse_1h_m_h": -0.006,
+        "vitesse_1h_m_h": -0.001,
         "vitesse_3h_m_h": 0.002,
         "vitesse_6h_m_h": 0.001,
         "tendance_courte": "STABLE",
         "retournement": null,
-        "motif": "Dynamique récente : STABLE ; variation 1 h = -0.006 m/h",
-        "date_calcul": "2026-08-23T19:21:08Z"
+        "motif": "Dynamique récente : STABLE ; variation 1 h = -0.001 m/h",
+        "date_calcul": "2026-08-23T19:43:12Z"
       }
     },
     {
@@ -138,7 +138,7 @@
         "tendance_courte": "INCONNUE",
         "retournement": null,
         "motif": "Deltas hydrométriques indisponibles",
-        "date_calcul": "2026-08-23T19:21:08Z"
+        "date_calcul": "2026-08-23T19:43:12Z"
       }
     },
     {
@@ -156,24 +156,24 @@
         "commune": "VERTOU",
         "cours_eau": "la Sèvre Nantaise",
         "grandeur": "H",
-        "date_derniere": "2026-08-23T19:00:00+00:00",
-        "valeur_actuelle": -0.196,
+        "date_derniere": "2026-08-23T19:20:00+00:00",
+        "valeur_actuelle": -0.198,
         "unite": "m",
-        "delta_1h": 0.0030000000000000027,
-        "delta_3h": 0.0010000000000000009,
-        "delta_6h": 0.0030000000000000027,
+        "delta_1h": 0.0010000000000000009,
+        "delta_3h": 0.0,
+        "delta_6h": 0.0,
         "tendance": "stable",
         "qualification": "Non qualifiée",
         "statut": "Brute",
         "niveau_dynamique": 0.0,
         "libelle_dynamique": "STABLE",
-        "vitesse_1h_m_h": 0.003,
+        "vitesse_1h_m_h": 0.001,
         "vitesse_3h_m_h": 0.0,
-        "vitesse_6h_m_h": 0.001,
+        "vitesse_6h_m_h": 0.0,
         "tendance_courte": "STABLE",
         "retournement": null,
-        "motif": "Dynamique récente : STABLE ; variation 1 h = +0.003 m/h",
-        "date_calcul": "2026-08-23T19:21:08Z"
+        "motif": "Dynamique récente : STABLE ; variation 1 h = +0.001 m/h",
+        "date_calcul": "2026-08-23T19:43:12Z"
       }
     }
   ]
