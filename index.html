@@ -1,8 +1,4 @@
 <!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-
     <meta
         name="viewport"
         content="width=device-width, initial-scale=1.0"
@@ -21,9 +17,6 @@
         rel="stylesheet"
         href="style.css"
     >
-</head>
-
-<body>
 
     <header class="page-header">
 
@@ -334,6 +327,54 @@
         </section>
 
 
+
+        <!-- ================================================================
+             CHAINE DE PRODUCTION DES DONNEES
+             ================================================================ -->
+
+        <section class="data-chain-section">
+
+            <div class="section-header">
+                <div>
+                    <h2>Chaîne de production des données</h2>
+                    <p>
+                        Source externe → collecte → traitement SIG → calcul indicateur → restitution web
+                    </p>
+                </div>
+            </div>
+
+            <div class="status-grid">
+
+                <article class="status-card">
+                    <h2>🌡️ Météo observée</h2>
+                    <div id="chain-meteo">Chargement…</div>
+                </article>
+
+                <article class="status-card">
+                    <h2>🌊 Hydrologie observée</h2>
+                    <div id="chain-hydro">Chargement…</div>
+                </article>
+
+                <article class="status-card">
+                    <h2>🌧️ Radar précipitations</h2>
+                    <div id="chain-radar">Chargement…</div>
+                </article>
+
+                <article class="status-card">
+                    <h2>🛰️ Prévisions AROME</h2>
+                    <div id="chain-arome">Chargement…</div>
+                </article>
+
+                <article class="status-card">
+                    <h2>🔥 Indicateur incendie</h2>
+                    <div id="chain-incendie">Chargement…</div>
+                </article>
+
+            </div>
+
+        </section>
+
+
         <!-- ================================================================
              CARTE
              ================================================================ -->
@@ -374,6 +415,3 @@
     <script
         src="app.js"
     ></script>
-
-</body>
-</html>

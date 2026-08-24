@@ -155,8 +155,6 @@ async function loadStatus() {
 
         currentStatus = data;
 
-        updateDataChain(data);
-
         document.getElementById(
             "meteo-date"
         ).textContent = formatDate(
@@ -2173,10 +2171,76 @@ setInterval(
     5 * 60 * 1000
 );
 
+/* ==========================================================================
+   METADONNEES CHAINE DE DONNEES
+   ========================================================================== */
+
+function updateDataChain(status) {
+
+    if (!status) return;
+
+    const generated = status.generated_at;
+
+    function latency(date) {
+        if (!date || !generated) return "—";
+        const minutes = Math.round((new Date(generated)-new Date(date))/60000);
+        return minutes + " min";
+    }
+
+    const write = (id, html) => {
+        const el = document.getElementById(id);
+        if (el) el.innerHTML = html;
+    };
+
+    write("chain-meteo", `
+        <b>Source :</b> Météo-France stations<br>
+        <b>Type :</b> observation réelle<br>
+        <b>Donnée :</b> ${formatDate(status.meteo.date)}<br>
+        <b>Intégration :</b> ${formatDate(generated)}<br>
+        <b>Délai :</b> ${latency(status.meteo.date)}
+    `);
+
+    write("chain-hydro", `
+        <b>Source :</b> Vigicrues / Hub'Eau<br>
+        <b>Type :</b> observation réelle<br>
+        <b>Donnée :</b> ${formatDate(status.hydro.date)}<br>
+        <b>Délai :</b> ${latency(status.hydro.date)}
+    `);
+
+    write("chain-radar", `
+        <b>Source :</b> Météo-France lame d'eau radar 500 m<br>
+        <b>Type :</b> estimation radar<br>
+        <b>Donnée :</b> ${formatDate(status.radar.date)}<br>
+        <b>Délai :</b> ${latency(status.radar.date)}
+    `);
+
+    write("chain-arome", `
+        <b>Source :</b> Météo-France AROME<br>
+        <b>Type :</b> prévision numérique<br>
+        <b>Run :</b> ${formatDate(status.arome.run)}<br>
+        <b>Échéance :</b> H+${status.incendie?.echeance_pic ?? "—"}
+    `);
+
+    write("chain-incendie", `
+        <b>Type :</b> indicateur calculé<br>
+        <b>Niveau :</b> ${status.incendie.niveau}<br>
+        <b>Méthode :</b> météo + AROME + facteurs territoriaux<br>
+        <b>Attention :</b> non officiel
+    `);
+}
+
+const oldDisplayStatus = typeof displayStatus === "function" ? displayStatus : null;
+
+if (oldDisplayStatus) {
+    displayStatus = function(status) {
+        oldDisplayStatus(status);
+        updateDataChain(status);
+    };
+}
 
 
 /* ==========================================================================
-   CHAINE DE PRODUCTION DES DONNEES
+   CHAINE DE DONNEES - AFFICHAGE OPERATIONNEL
    ========================================================================== */
 
 function updateDataChain(status) {
@@ -2187,90 +2251,62 @@ function updateDataChain(status) {
 
     function formatDateUTC(value) {
         if (!value) return "—";
-
-        return new Date(value).toLocaleString(
-            "fr-FR",
-            {
-                timeZone: "UTC",
-                year: "numeric",
-                month: "2-digit",
-                day: "2-digit",
-                hour: "2-digit",
-                minute: "2-digit"
-            }
-        ) + " UTC";
+        return new Date(value).toLocaleString("fr-FR", {
+            timeZone: "UTC",
+            year: "numeric",
+            month: "2-digit",
+            day: "2-digit",
+            hour: "2-digit",
+            minute: "2-digit"
+        }) + " UTC";
     }
 
     function delay(value) {
-
-        if (!value || !generated) {
-            return "—";
-        }
-
+        if (!value || !generated) return "—";
         return Math.round(
             (new Date(generated) - new Date(value)) / 60000
         ) + " min";
     }
 
-    function write(id, html) {
-
-        const element =
-            document.getElementById(id);
-
-        if (element) {
-            element.innerHTML = html;
-        }
+    function set(id, html) {
+        const element = document.getElementById(id);
+        if (element) element.innerHTML = html;
     }
 
-    write(
-        "chain-meteo",
-        `
-        <b>Source :</b> ${status.meteo?.source ?? "Météo-France stations"}<br>
-        <b>Type :</b> observation réelle<br>
-        <b>Donnée :</b> ${formatDateUTC(status.meteo?.date)}<br>
-        <b>Intégration :</b> ${formatDateUTC(generated)}<br>
-        <b>Délai :</b> ${delay(status.meteo?.date)}
-        `
-    );
+    set("chain-meteo", `
+        Source : ${status.meteo.source || "Météo-France stations"}<br>
+        Type : observation réelle<br>
+        Donnée : ${formatDateUTC(status.meteo.date)}<br>
+        Intégration : ${formatDateUTC(generated)}<br>
+        Délai : ${delay(status.meteo.date)}
+    `);
 
-    write(
-        "chain-hydro",
-        `
-        <b>Source :</b> ${status.hydro?.source ?? "Vigicrues / Hub'Eau"}<br>
-        <b>Type :</b> observation réelle<br>
-        <b>Donnée :</b> ${formatDateUTC(status.hydro?.date)}<br>
-        <b>Délai :</b> ${delay(status.hydro?.date)}
-        `
-    );
+    set("chain-hydro", `
+        Source : ${status.hydro.source || "Vigicrues / Hub'Eau"}<br>
+        Type : observation réelle<br>
+        Donnée : ${formatDateUTC(status.hydro.date)}<br>
+        Délai : ${delay(status.hydro.date)}
+    `);
 
-    write(
-        "chain-radar",
-        `
-        <b>Source :</b> ${status.radar?.source ?? "Météo-France radar"}<br>
-        <b>Type :</b> estimation radar<br>
-        <b>Donnée :</b> ${formatDateUTC(status.radar?.date)}<br>
-        <b>Délai :</b> ${delay(status.radar?.date)}
-        `
-    );
+    set("chain-radar", `
+        Source : ${status.radar.source || "Météo-France radar"}<br>
+        Type : estimation radar<br>
+        Donnée : ${formatDateUTC(status.radar.date)}<br>
+        Délai : ${delay(status.radar.date)}
+    `);
 
-    write(
-        "chain-arome",
-        `
-        <b>Source :</b> ${status.arome?.source ?? "Météo-France AROME"}<br>
-        <b>Type :</b> prévision numérique<br>
-        <b>Run :</b> ${formatDateUTC(status.arome?.run)}<br>
-        <b>Échéance :</b> ${status.arome?.echeance ?? "—"}
-        `
-    );
+    set("chain-arome", `
+        Source : ${status.arome.source || "Météo-France AROME"}<br>
+        Type : prévision numérique<br>
+        Run : ${formatDateUTC(status.arome.run)}<br>
+        Échéance : ${status.arome.echeance || "—"}
+    `);
 
-    write(
-        "chain-incendie",
-        `
-        <b>Type :</b> indicateur calculé<br>
-        <b>Niveau :</b> ${status.incendie?.niveau ?? "—"}<br>
-        <b>Méthode :</b> ${status.incendie?.methode ?? "AROME + facteurs territoriaux"}<br>
-        <b>Attention :</b> non officiel
-        `
-    );
+    set("chain-incendie", `
+        Type : indicateur calculé<br>
+        Niveau : ${status.incendie.niveau}<br>
+        Méthode : ${status.incendie.methode}<br>
+        Attention : non officiel
+    `);
 }
 

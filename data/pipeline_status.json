@@ -1,0 +1,12 @@
+{
+  "last_run_start": "2026-08-23T19:53:27Z",
+  "last_run_end": "2026-08-23T20:09:00Z",
+  "duration_seconds": 933,
+  "status": "OK",
+  "radar": "OK",
+  "meteo": "OK",
+  "hydro": "OK",
+  "arome": "OK",
+  "dashboard": "OK",
+  "publication": "OK"
+}
