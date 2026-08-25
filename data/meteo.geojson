@@ -14,8 +14,8 @@
         "id_station": "44015001",
         "nom_station": "BLAIN",
         "altitude_m": 13.0,
-        "date_observation": "2026-08-24T18:18:00Z",
-        "temperature_c": 19.4,
+        "date_observation": "2026-08-25T17:36:00Z",
+        "temperature_c": 21.2,
         "point_rosee_c": null,
         "humidite_pct": null,
         "direction_vent_deg": null,
@@ -27,7 +27,7 @@
         "pluie_mm": 0.0,
         "pression_hpa": null,
         "pression_mer_hpa": null,
-        "date_collecte": "2026-08-24T18:26:20Z"
+        "date_collecte": "2026-08-25T17:43:12Z"
       }
     },
     {
@@ -43,20 +43,20 @@
         "id_station": "44020001",
         "nom_station": "NANTES-BOUGUENAIS",
         "altitude_m": 26.0,
-        "date_observation": "2026-08-24T18:18:00Z",
-        "temperature_c": 20.1,
+        "date_observation": "2026-08-25T17:36:00Z",
+        "temperature_c": 21.6,
         "point_rosee_c": 16.5,
-        "humidite_pct": 80.0,
-        "direction_vent_deg": 10.0,
-        "vent_ms": 1.5,
-        "vent_kmh": 5.4,
-        "rafale_10min_ms": 2.3,
-        "rafale_10min_kmh": 8.3,
-        "direction_rafale_deg": 20.0,
+        "humidite_pct": 73.0,
+        "direction_vent_deg": 250.0,
+        "vent_ms": 2.6,
+        "vent_kmh": 9.4,
+        "rafale_10min_ms": 4.4,
+        "rafale_10min_kmh": 15.8,
+        "direction_rafale_deg": 250.0,
         "pluie_mm": 0.0,
-        "pression_hpa": 1004.0,
-        "pression_mer_hpa": 1007.0,
-        "date_collecte": "2026-08-24T18:26:20Z"
+        "pression_hpa": 1008.9,
+        "pression_mer_hpa": 1011.9,
+        "date_collecte": "2026-08-25T17:43:12Z"
       }
     },
     {
@@ -72,8 +72,8 @@
         "id_station": "44109012",
         "nom_station": "NANTES-VILLE",
         "altitude_m": 17.0,
-        "date_observation": "2026-08-24T18:18:00Z",
-        "temperature_c": 20.0,
+        "date_observation": "2026-08-25T17:36:00Z",
+        "temperature_c": 22.3,
         "point_rosee_c": null,
         "humidite_pct": null,
         "direction_vent_deg": null,
@@ -85,7 +85,7 @@
         "pluie_mm": 0.0,
         "pression_hpa": null,
         "pression_mer_hpa": null,
-        "date_collecte": "2026-08-24T18:26:20Z"
+        "date_collecte": "2026-08-25T17:43:12Z"
       }
     },
     {
@@ -101,20 +101,20 @@
         "id_station": "44110002",
         "nom_station": "NORT-SUR-ERDRE",
         "altitude_m": 13.0,
-        "date_observation": "2026-08-24T18:18:00Z",
-        "temperature_c": 19.3,
-        "point_rosee_c": 16.7,
-        "humidite_pct": 85.0,
-        "direction_vent_deg": 60.0,
-        "vent_ms": 3.5,
-        "vent_kmh": 12.6,
-        "rafale_10min_ms": 4.9,
-        "rafale_10min_kmh": 17.6,
-        "direction_rafale_deg": 70.0,
+        "date_observation": "2026-08-25T17:36:00Z",
+        "temperature_c": 22.1,
+        "point_rosee_c": 16.8,
+        "humidite_pct": 72.0,
+        "direction_vent_deg": 260.0,
+        "vent_ms": 2.9,
+        "vent_kmh": 10.4,
+        "rafale_10min_ms": 4.4,
+        "rafale_10min_kmh": 15.8,
+        "direction_rafale_deg": 280.0,
         "pluie_mm": 0.0,
         "pression_hpa": null,
         "pression_mer_hpa": null,
-        "date_collecte": "2026-08-24T18:26:20Z"
+        "date_collecte": "2026-08-25T17:43:12Z"
       }
     },
     {
@@ -130,8 +130,8 @@
         "id_station": "44117002",
         "nom_station": "LE PALLET_SAPC",
         "altitude_m": 35.0,
-        "date_observation": "2026-08-24T18:18:00Z",
-        "temperature_c": 21.4,
+        "date_observation": "2026-08-25T17:36:00Z",
+        "temperature_c": 22.9,
         "point_rosee_c": null,
         "humidite_pct": null,
         "direction_vent_deg": null,
@@ -143,7 +143,7 @@
         "pluie_mm": 0.0,
         "pression_hpa": null,
         "pression_mer_hpa": null,
-        "date_collecte": "2026-08-24T18:26:20Z"
+        "date_collecte": "2026-08-25T17:43:12Z"
       }
     },
     {
@@ -159,8 +159,8 @@
         "id_station": "44120002",
         "nom_station": "PELLERIN(LE)",
         "altitude_m": 4.0,
-        "date_observation": "2026-08-24T18:00:00Z",
-        "temperature_c": 19.3,
+        "date_observation": "2026-08-25T17:00:00Z",
+        "temperature_c": 21.6,
         "point_rosee_c": null,
         "humidite_pct": null,
         "direction_vent_deg": null,
@@ -172,7 +172,7 @@
         "pluie_mm": 0.0,
         "pression_hpa": null,
         "pression_mer_hpa": null,
-        "date_collecte": "2026-08-24T18:26:20Z"
+        "date_collecte": "2026-08-25T17:43:12Z"
       }
     },
     {
@@ -188,20 +188,20 @@
         "id_station": "44181001",
         "nom_station": "ST-MEME-LE-TENU",
         "altitude_m": 4.0,
-        "date_observation": "2026-08-24T18:18:00Z",
-        "temperature_c": 20.9,
-        "point_rosee_c": 16.5,
-        "humidite_pct": 76.0,
-        "direction_vent_deg": 60.0,
-        "vent_ms": 1.3,
-        "vent_kmh": 4.7,
-        "rafale_10min_ms": 2.6,
-        "rafale_10min_kmh": 9.4,
-        "direction_rafale_deg": 70.0,
+        "date_observation": "2026-08-25T17:36:00Z",
+        "temperature_c": 21.9,
+        "point_rosee_c": 16.6,
+        "humidite_pct": 72.0,
+        "direction_vent_deg": 250.0,
+        "vent_ms": 3.5,
+        "vent_kmh": 12.6,
+        "rafale_10min_ms": 5.7,
+        "rafale_10min_kmh": 20.5,
+        "direction_rafale_deg": 250.0,
         "pluie_mm": 0.0,
         "pression_hpa": null,
         "pression_mer_hpa": null,
-        "date_collecte": "2026-08-24T18:26:20Z"
+        "date_collecte": "2026-08-25T17:43:12Z"
       }
     },
     {
@@ -217,8 +217,8 @@
         "id_station": "44188001",
         "nom_station": "ST-PHILBERT",
         "altitude_m": 18.0,
-        "date_observation": "2026-08-24T18:18:00Z",
-        "temperature_c": 20.8,
+        "date_observation": "2026-08-25T17:36:00Z",
+        "temperature_c": 22.4,
         "point_rosee_c": null,
         "humidite_pct": null,
         "direction_vent_deg": null,
@@ -230,7 +230,7 @@
         "pluie_mm": 0.0,
         "pression_hpa": null,
         "pression_mer_hpa": null,
-        "date_collecte": "2026-08-24T18:26:20Z"
+        "date_collecte": "2026-08-25T17:43:12Z"
       }
     },
     {
@@ -246,8 +246,8 @@
         "id_station": "85190001",
         "nom_station": "ROCHESERVIERE",
         "altitude_m": 43.0,
-        "date_observation": "2026-08-24T18:18:00Z",
-        "temperature_c": 20.9,
+        "date_observation": "2026-08-25T17:36:00Z",
+        "temperature_c": 22.2,
         "point_rosee_c": null,
         "humidite_pct": null,
         "direction_vent_deg": null,
@@ -259,7 +259,7 @@
         "pluie_mm": 0.0,
         "pression_hpa": null,
         "pression_mer_hpa": null,
-        "date_collecte": "2026-08-24T18:26:20Z"
+        "date_collecte": "2026-08-25T17:43:12Z"
       }
     }
   ]
