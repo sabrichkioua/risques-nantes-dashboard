@@ -1,417 +1,181 @@
 <!DOCTYPE html>
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Risques et crises — Nantes Métropole</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="page-header">
+  <div>
+    <h1>Risques et crises</h1>
+    <p class="subtitle">Nantes Métropole — prototype</p>
+  </div>
+</header>
+
+<main>
+  <div id="error" class="error-box"></div>
+
+  <section class="status-grid">
+    <article class="status-card"><h2>Météo</h2><div class="status-value" id="meteo-date">Chargement…</div></article>
+    <article class="status-card"><h2>Hydro</h2><div class="status-value" id="hydro-date">Chargement…</div></article>
+    <article class="status-card"><h2>Radar</h2><div class="status-value" id="radar-date">Chargement…</div></article>
+    <article class="status-card"><h2>AROME</h2><div class="status-value" id="arome-run">Chargement…</div></article>
+    <article class="status-card">
+      <h2>Propension incendie</h2>
+      <p>Niveau : <span class="status-value" id="incendie-niveau">Chargement…</span></p>
+      <p>Pic : <span id="incendie-pic">—</span></p>
+    </article>
+    <article class="status-card"><h2>Mise à jour</h2><div id="generated-at">Chargement…</div></article>
+  </section>
+
+  <section class="situation-section" id="situation-section">
+    <div class="section-header">
+      <div>
+        <h2>Situation à surveiller</h2>
+        <p>Synthèse automatique des principaux indicateurs disponibles</p>
+      </div>
+    </div>
+    <div class="situation-grid" id="situation-grid">
+      <article class="situation-card" id="situation-incendie"><h3>Incendie</h3><div class="situation-content" id="situation-incendie-content">Chargement…</div></article>
+      <article class="situation-card" id="situation-hydro"><h3>Hydro</h3><div class="situation-content" id="situation-hydro-content">Chargement…</div></article>
+      <article class="situation-card" id="situation-meteo"><h3>Météo</h3><div class="situation-content" id="situation-meteo-content">Chargement…</div></article>
+    </div>
+  </section>
+
+  <section class="timeline-section" id="incendie-timeline-section">
+    <div class="section-header">
+      <div>
+        <h2>Évolution de la propension incendie</h2>
+        <p>Prévision AROME — échéances principales</p>
+      </div>
+      <div class="timeline-run" id="incendie-timeline-run">Chargement…</div>
+    </div>
+
+    <div class="timeline-summary" id="incendie-timeline-summary">Chargement de la timeline…</div>
+
+    <div class="timeline-slider">
+      <label for="incendie-timeline-range">Échéance</label>
+      <input id="incendie-timeline-range" type="range" min="0" max="3" step="1" value="0" aria-label="Échéance AROME">
+      <div class="timeline-slider-labels">
+        <span>H+6</span><span>H+12</span><span>H+18</span><span>H+24</span>
+      </div>
+    </div>
+
+    <div class="timeline-scroll"><div class="timeline" id="incendie-timeline"></div></div>
+    <div class="timeline-detail" id="incendie-timeline-detail">
+      <div class="timeline-detail-placeholder">Sélectionnez une échéance.</div>
+    </div>
+  </section>
+
+</section>
+
+<section class="arome-forecast-section" id="arome-forecast-section">
+
+  <div class="section-header">
+    <div>
+      <h2>Prévision AROME</h2>
+      <p id="arome-forecast-validity">Chargement…</p>
+    </div>
+
+    <div class="arome-forecast-run" id="arome-forecast-run">
+      Chargement…
+    </div>
+  </div>
+
+  <div class="arome-forecast-grid">
+
+    <article class="arome-metric-card">
+      <h3>🌡️ Température</h3>
+      <strong id="arome-temperature">—</strong>
+      <span id="arome-temperature-range">—</span>
+    </article>
+
+    <article class="arome-metric-card">
+      <h3>💧 Humidité</h3>
+      <strong id="arome-humidity">—</strong>
+      <span id="arome-humidity-range">—</span>
+    </article>
+
+    <article class="arome-metric-card">
+      <h3>💨 Vent</h3>
+      <strong id="arome-wind">—</strong>
+      <span id="arome-wind-max">—</span>
+    </article>
+
+    <article class="arome-metric-card">
+      <h3>🌬️ Rafales</h3>
+      <strong id="arome-gust">—</strong>
+      <span>maximum territorial</span>
+    </article>
+
+    <article class="arome-metric-card">
+      <h3>🌧️ Précipitations</h3>
+      <strong id="arome-rain-1h">—</strong>
+      <span id="arome-rain-6h">—</span>
+    </article>
+
+  </div>
+
+  <div class="arome-forecast-selector">
+
+    <label for="arome-forecast-range">Échéance</label>
+
+    <input
+      id="arome-forecast-range"
+      type="range"
+      min="0"
+      max="3"
+      step="1"
+      value="0"
     >
 
-    <title>
-        Risques et crises — Nantes Métropole
-    </title>
-
-    <link
-        rel="stylesheet"
-        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-    >
-
-    <link
-        rel="stylesheet"
-        href="style.css"
-    >
-
-    <header class="page-header">
-
-        <div>
-
-            <h1>
-                Risques et crises
-            </h1>
-
-            <p class="subtitle">
-                Nantes Métropole — prototype
-            </p>
-
-        </div>
-
-    </header>
-
-
-    <main>
-
-        <!-- ================================================================
-             ERREURS
-             ================================================================ -->
-
-        <div
-            id="error"
-            class="error-box"
-        ></div>
-
-
-        <!-- ================================================================
-             STATUT DES DONNEES
-             ================================================================ -->
-
-        <section class="status-grid">
-
-            <article class="status-card">
-
-                <h2>
-                    Météo
-                </h2>
-
-                <div
-                    class="status-value"
-                    id="meteo-date"
-                >
-                    Chargement…
-                </div>
-
-            </article>
-
-
-            <article class="status-card">
-
-                <h2>
-                    Hydro
-                </h2>
-
-                <div
-                    class="status-value"
-                    id="hydro-date"
-                >
-                    Chargement…
-                </div>
-
-            </article>
-
-
-            <article class="status-card">
-
-                <h2>
-                    Radar
-                </h2>
-
-                <div
-                    class="status-value"
-                    id="radar-date"
-                >
-                    Chargement…
-                </div>
-
-            </article>
-
-
-            <article class="status-card">
-
-                <h2>
-                    AROME
-                </h2>
-
-                <div
-                    class="status-value"
-                    id="arome-run"
-                >
-                    Chargement…
-                </div>
-
-            </article>
-
-
-            <article class="status-card">
-
-                <h2>
-                    Propension incendie
-                </h2>
-
-                <p>
-
-                    Niveau :
-
-                    <span
-                        class="status-value"
-                        id="incendie-niveau"
-                    >
-                        Chargement…
-                    </span>
-
-                </p>
-
-                <p>
-
-                    Pic :
-
-                    <span
-                        id="incendie-pic"
-                    >
-                        —
-                    </span>
-
-                </p>
-
-            </article>
-
-
-            <article class="status-card">
-
-                <h2>
-                    Mise à jour
-                </h2>
-
-                <div
-                    id="generated-at"
-                >
-                    Chargement…
-                </div>
-
-            </article>
-
-        </section>
-
-
-        <!-- ================================================================
-             SITUATION A SURVEILLER
-             ================================================================ -->
-
-        <section
-            class="situation-section"
-            id="situation-section"
-        >
-
-            <div class="section-header">
-
-                <div>
-
-                    <h2>
-                        Situation à surveiller
-                    </h2>
-
-                    <p>
-                        Synthèse automatique des principaux indicateurs disponibles
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div
-                class="situation-grid"
-                id="situation-grid"
-            >
-
-                <article
-                    class="situation-card"
-                    id="situation-incendie"
-                >
-
-                    <h3>
-                        Incendie
-                    </h3>
-
-                    <div
-                        class="situation-content"
-                        id="situation-incendie-content"
-                    >
-                        Chargement…
-                    </div>
-
-                </article>
-
-
-                <article
-                    class="situation-card"
-                    id="situation-hydro"
-                >
-
-                    <h3>
-                        Hydro
-                    </h3>
-
-                    <div
-                        class="situation-content"
-                        id="situation-hydro-content"
-                    >
-                        Chargement…
-                    </div>
-
-                </article>
-
-
-                <article
-                    class="situation-card"
-                    id="situation-meteo"
-                >
-
-                    <h3>
-                        Météo
-                    </h3>
-
-                    <div
-                        class="situation-content"
-                        id="situation-meteo-content"
-                    >
-                        Chargement…
-                    </div>
-
-                </article>
-
-            </div>
-
-        </section>
-
-
-        <!-- ================================================================
-             TIMELINE INCENDIE
-             ================================================================ -->
-
-        <section
-            class="timeline-section"
-            id="incendie-timeline-section"
-        >
-
-            <div class="section-header">
-
-                <div>
-
-                    <h2>
-                        Évolution de la propension incendie
-                    </h2>
-
-                    <p>
-                        Prévision AROME sur les prochaines échéances
-                    </p>
-
-                </div>
-
-                <div
-                    class="timeline-run"
-                    id="incendie-timeline-run"
-                >
-                    Chargement…
-                </div>
-
-            </div>
-
-
-            <div
-                class="timeline-summary"
-                id="incendie-timeline-summary"
-            >
-                Chargement de la timeline…
-            </div>
-
-
-            <div
-                class="timeline-scroll"
-            >
-
-                <div
-                    class="timeline"
-                    id="incendie-timeline"
-                ></div>
-
-            </div>
-
-
-            <div
-                class="timeline-detail"
-                id="incendie-timeline-detail"
-            >
-
-                <div class="timeline-detail-placeholder">
-                    Sélectionnez une échéance pour afficher le détail.
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- ================================================================
-             CHAINE DE PRODUCTION DES DONNEES
-             ================================================================ -->
-
-        <section class="data-chain-section">
-
-            <div class="section-header">
-                <div>
-                    <h2>Chaîne de production des données</h2>
-                    <p>
-                        Source externe → collecte → traitement SIG → calcul indicateur → restitution web
-                    </p>
-                </div>
-            </div>
-
-            <div class="status-grid">
-
-                <article class="status-card">
-                    <h2>🌡️ Météo observée</h2>
-                    <div id="chain-meteo">Chargement…</div>
-                </article>
-
-                <article class="status-card">
-                    <h2>🌊 Hydrologie observée</h2>
-                    <div id="chain-hydro">Chargement…</div>
-                </article>
-
-                <article class="status-card">
-                    <h2>🌧️ Radar précipitations</h2>
-                    <div id="chain-radar">Chargement…</div>
-                </article>
-
-                <article class="status-card">
-                    <h2>🛰️ Prévisions AROME</h2>
-                    <div id="chain-arome">Chargement…</div>
-                </article>
-
-                <article class="status-card">
-                    <h2>🔥 Indicateur incendie</h2>
-                    <div id="chain-incendie">Chargement…</div>
-                </article>
-
-            </div>
-
-        </section>
-
-
-        <!-- ================================================================
-             CARTE
-             ================================================================ -->
-
-        <section class="map-section">
-
-            <div class="section-header">
-
-                <div>
-
-                    <h2>
-                        Situation territoriale
-                    </h2>
-
-                    <p>
-                        Observations et prévisions disponibles
-                    </p>
-
-                </div>
-
-            </div>
-
-            <div id="map"></div>
-
-        </section>
-
-    </main>
-
-
-    <!-- ====================================================================
-         JAVASCRIPT
-         ==================================================================== -->
-
-    <script
-        src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-    ></script>
-
-    <script
-        src="app.js"
-    ></script>
+    <div class="arome-forecast-labels">
+      <span>H+6</span>
+      <span>H+12</span>
+      <span>H+18</span>
+      <span>H+24</span>
+    </div>
+
+  </div>
+
+</section>
+
+<section class="data-chain-section">
+
+
+
+  <section class="data-chain-section">
+    <div class="section-header">
+      <div>
+        <h2>Chaîne de production des données</h2>
+        <p>Source externe → collecte → traitement SIG → calcul indicateur → restitution web</p>
+      </div>
+    </div>
+    <div class="status-grid">
+      <article class="status-card"><h2>🌡️ Météo observée</h2><div id="chain-meteo">Chargement…</div></article>
+      <article class="status-card"><h2>🌊 Hydrologie observée</h2><div id="chain-hydro">Chargement…</div></article>
+      <article class="status-card"><h2>🌧️ Radar précipitations</h2><div id="chain-radar">Chargement…</div></article>
+      <article class="status-card"><h2>🛰️ Prévisions AROME</h2><div id="chain-arome">Chargement…</div></article>
+      <article class="status-card"><h2>🔥 Indicateur incendie</h2><div id="chain-incendie">Chargement…</div></article>
+    </div>
+  </section>
+
+  <section class="map-section">
+    <div class="section-header">
+      <div>
+        <h2>Situation territoriale</h2>
+        <p>Observations et prévisions disponibles</p>
+      </div>
+    </div>
+    <div id="map"></div>
+  </section>
+</main>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

@@ -155,8 +155,6 @@ async function loadStatus() {
 
         currentStatus = data;
 
-        updateDataChain(data);
-
         document.getElementById(
             "meteo-date"
         ).textContent = formatDate(
@@ -1010,6 +1008,173 @@ function renderTimeline(data) {
                 items[0],
                 false
             );
+        }
+    }
+}
+
+
+async function loadAromeForecast() {
+
+    try {
+
+        const response =
+            await fetch(
+                "data/arome_forecast.json"
+            );
+
+        if (!response.ok) {
+            throw new Error(
+                `HTTP ${response.status}`
+            );
+        }
+
+        const data =
+            await response.json();
+
+        const items =
+            data.echeances ?? [];
+
+        const range =
+            document.getElementById(
+                "arome-forecast-range"
+            );
+
+        if (!items.length) {
+            throw new Error(
+                "Aucune échéance AROME disponible."
+            );
+        }
+
+        const run =
+            document.getElementById(
+                "arome-forecast-run"
+            );
+
+        const validity =
+            document.getElementById(
+                "arome-forecast-validity"
+            );
+
+        const temperature =
+            document.getElementById(
+                "arome-temperature"
+            );
+
+        const temperatureRange =
+            document.getElementById(
+                "arome-temperature-range"
+            );
+
+        const humidity =
+            document.getElementById(
+                "arome-humidity"
+            );
+
+        const humidityRange =
+            document.getElementById(
+                "arome-humidity-range"
+            );
+
+        const wind =
+            document.getElementById(
+                "arome-wind"
+            );
+
+        const windMax =
+            document.getElementById(
+                "arome-wind-max"
+            );
+
+        const gust =
+            document.getElementById(
+                "arome-gust"
+            );
+
+        const rain1h =
+            document.getElementById(
+                "arome-rain-1h"
+            );
+
+        const rain6h =
+            document.getElementById(
+                "arome-rain-6h"
+            );
+
+        run.textContent =
+            `Run : ${formatDate(data.date_run)}`;
+
+        function render(index) {
+
+            const item =
+                items[index];
+
+            if (!item) {
+                return;
+            }
+
+            range.value =
+                String(index);
+
+            validity.textContent =
+                `H+${item.echeance_h} — ${formatDate(item.date_validite)}`;
+
+            temperature.textContent =
+                `${item.temperature.moy_c.toFixed(1)} °C`;
+
+            temperatureRange.textContent =
+                `${item.temperature.min_c.toFixed(1)} → ${item.temperature.max_c.toFixed(1)} °C`;
+
+            humidity.textContent =
+                `${item.humidite.moy_pct.toFixed(1)} %`;
+
+            humidityRange.textContent =
+                `${item.humidite.min_pct.toFixed(1)} → ${item.humidite.max_pct.toFixed(1)} %`;
+
+            wind.textContent =
+                `${item.vent.moy_kmh.toFixed(1)} km/h`;
+
+            windMax.textContent =
+                `max ${item.vent.max_kmh.toFixed(1)} km/h`;
+
+            gust.textContent =
+                `${item.rafale.max_kmh.toFixed(1)} km/h`;
+
+            rain1h.textContent =
+                `${item.pluie.moy_1h_mm.toFixed(2)} mm / 1 h`;
+
+            rain6h.textContent =
+                `${item.pluie.moy_6h_mm.toFixed(2)} mm / 6 h`;
+        }
+
+        range.max =
+            String(items.length - 1);
+
+        range.addEventListener(
+            "input",
+            () => {
+                render(
+                    Number(range.value)
+                );
+            }
+        );
+
+        render(0);
+
+    } catch (error) {
+
+        console.error(
+            "Erreur chargement AROME :",
+            error
+        );
+
+        const validity =
+            document.getElementById(
+                "arome-forecast-validity"
+            );
+
+        if (validity) {
+            validity.textContent =
+                "Impossible de charger les prévisions AROME.";
         }
     }
 }
@@ -2140,6 +2305,7 @@ async function refreshData() {
     await Promise.all(
         [
             loadIncendieTimeline(),
+            loadAromeForecast(),
             loadHydro(),
             loadMeteo(),
             loadIncendie(),
@@ -2172,105 +2338,3 @@ setInterval(
     refreshData,
     5 * 60 * 1000
 );
-
-
-
-/* ==========================================================================
-   CHAINE DE PRODUCTION DES DONNEES
-   ========================================================================== */
-
-function updateDataChain(status) {
-
-    if (!status) return;
-
-    const generated = status.generated_at;
-
-    function formatDateUTC(value) {
-        if (!value) return "—";
-
-        return new Date(value).toLocaleString(
-            "fr-FR",
-            {
-                timeZone: "UTC",
-                year: "numeric",
-                month: "2-digit",
-                day: "2-digit",
-                hour: "2-digit",
-                minute: "2-digit"
-            }
-        ) + " UTC";
-    }
-
-    function delay(value) {
-
-        if (!value || !generated) {
-            return "—";
-        }
-
-        return Math.round(
-            (new Date(generated) - new Date(value)) / 60000
-        ) + " min";
-    }
-
-    function write(id, html) {
-
-        const element =
-            document.getElementById(id);
-
-        if (element) {
-            element.innerHTML = html;
-        }
-    }
-
-    write(
-        "chain-meteo",
-        `
-        <b>Source :</b> ${status.meteo?.source ?? "Météo-France stations"}<br>
-        <b>Type :</b> observation réelle<br>
-        <b>Donnée :</b> ${formatDateUTC(status.meteo?.date)}<br>
-        <b>Intégration :</b> ${formatDateUTC(generated)}<br>
-        <b>Délai :</b> ${delay(status.meteo?.date)}
-        `
-    );
-
-    write(
-        "chain-hydro",
-        `
-        <b>Source :</b> ${status.hydro?.source ?? "Vigicrues / Hub'Eau"}<br>
-        <b>Type :</b> observation réelle<br>
-        <b>Donnée :</b> ${formatDateUTC(status.hydro?.date)}<br>
-        <b>Délai :</b> ${delay(status.hydro?.date)}
-        `
-    );
-
-    write(
-        "chain-radar",
-        `
-        <b>Source :</b> ${status.radar?.source ?? "Météo-France radar"}<br>
-        <b>Type :</b> estimation radar<br>
-        <b>Donnée :</b> ${formatDateUTC(status.radar?.date)}<br>
-        <b>Délai :</b> ${delay(status.radar?.date)}
-        `
-    );
-
-    write(
-        "chain-arome",
-        `
-        <b>Source :</b> ${status.arome?.source ?? "Météo-France AROME"}<br>
-        <b>Type :</b> prévision numérique<br>
-        <b>Run :</b> ${formatDateUTC(status.arome?.run)}<br>
-        <b>Échéance :</b> ${status.arome?.echeance ?? "—"}
-        `
-    );
-
-    write(
-        "chain-incendie",
-        `
-        <b>Type :</b> indicateur calculé<br>
-        <b>Niveau :</b> ${status.incendie?.niveau ?? "—"}<br>
-        <b>Méthode :</b> ${status.incendie?.methode ?? "AROME + facteurs territoriaux"}<br>
-        <b>Attention :</b> non officiel
-        `
-    );
-}
-

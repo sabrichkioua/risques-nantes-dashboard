@@ -1421,3 +1421,40 @@ main {
             500px;
     }
 }
+
+/* ==========================================================================
+   TIMELINE — SLIDER DES ECHEANCES PRINCIPALES
+   ========================================================================== */
+
+.timeline-slider {
+    padding: 8px 20px 4px;
+}
+
+.timeline-slider label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: .8rem;
+    font-weight: 650;
+    color: #4c555d;
+}
+
+.timeline-slider input[type="range"] {
+    display: block;
+    width: 100%;
+    margin: 0;
+    accent-color: #30373d;
+    cursor: pointer;
+}
+
+.timeline-slider-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 4px;
+    color: #737b82;
+    font-size: .72rem;
+}
+
+.timeline-slider-labels span {
+    min-width: 40px;
+    text-align: center;
+}

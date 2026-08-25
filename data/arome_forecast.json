@@ -1,0 +1,118 @@
+{
+  "generated_at": "2026-08-25T21:30:36Z",
+  "date_run": "2026-08-25T12:00:00Z",
+  "echeances": [
+    {
+      "echeance_h": 6,
+      "date_validite": "2026-08-25T18:00:00Z",
+      "points": 4536,
+      "temperature": {
+        "min_c": 20.0,
+        "moy_c": 21.2,
+        "max_c": 22.6
+      },
+      "humidite": {
+        "min_pct": 65.7,
+        "moy_pct": 75.7,
+        "max_pct": 88.3
+      },
+      "vent": {
+        "moy_kmh": 13.6,
+        "max_kmh": 21.5
+      },
+      "rafale": {
+        "max_kmh": 32.3
+      },
+      "pluie": {
+        "moy_1h_mm": 0.0,
+        "max_1h_mm": 0.0,
+        "moy_6h_mm": 0.0,
+        "max_6h_mm": 0.0
+      }
+    },
+    {
+      "echeance_h": 12,
+      "date_validite": "2026-08-26T00:00:00Z",
+      "points": 4536,
+      "temperature": {
+        "min_c": 14.3,
+        "moy_c": 15.7,
+        "max_c": 18.7
+      },
+      "humidite": {
+        "min_pct": 90.8,
+        "moy_pct": 99.2,
+        "max_pct": 100.0
+      },
+      "vent": {
+        "moy_kmh": 6.2,
+        "max_kmh": 10.2
+      },
+      "rafale": {
+        "max_kmh": 15.5
+      },
+      "pluie": {
+        "moy_1h_mm": 0.0,
+        "max_1h_mm": 0.01,
+        "moy_6h_mm": 0.0,
+        "max_6h_mm": 0.01
+      }
+    },
+    {
+      "echeance_h": 18,
+      "date_validite": "2026-08-26T06:00:00Z",
+      "points": 4536,
+      "temperature": {
+        "min_c": 15.4,
+        "moy_c": 16.6,
+        "max_c": 18.3
+      },
+      "humidite": {
+        "min_pct": 98.3,
+        "moy_pct": 99.9,
+        "max_pct": 100.0
+      },
+      "vent": {
+        "moy_kmh": 6.9,
+        "max_kmh": 15.5
+      },
+      "rafale": {
+        "max_kmh": 18.9
+      },
+      "pluie": {
+        "moy_1h_mm": 0.02,
+        "max_1h_mm": 0.03,
+        "moy_6h_mm": 0.09,
+        "max_6h_mm": 0.15
+      }
+    },
+    {
+      "echeance_h": 24,
+      "date_validite": "2026-08-26T12:00:00Z",
+      "points": 4536,
+      "temperature": {
+        "min_c": 22.3,
+        "moy_c": 23.7,
+        "max_c": 25.6
+      },
+      "humidite": {
+        "min_pct": 55.9,
+        "moy_pct": 66.8,
+        "max_pct": 74.2
+      },
+      "vent": {
+        "moy_kmh": 15.7,
+        "max_kmh": 19.2
+      },
+      "rafale": {
+        "max_kmh": 32.0
+      },
+      "pluie": {
+        "moy_1h_mm": 0.0,
+        "max_1h_mm": 0.13,
+        "moy_6h_mm": 0.02,
+        "max_6h_mm": 0.13
+      }
+    }
+  ]
+}
